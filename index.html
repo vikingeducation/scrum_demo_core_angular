@@ -31,13 +31,20 @@
         <h1>Angular {{ time % 2 === 0 ? 'Demo' : 'Example' }}</h1>
       </header>
 
+
+      <!-- $scope -->
       <h2><code>$scope</code></h2>
       <p>{{ message }}</p>
 
-
+      
+      <!-- ng-click -->
       <h2><code>ng-click</code></h2>
       <button class="btn btn-primary" ng-click="onClick()">Click me!</button>
 
+      
+      <!-- ng-if -->
+      <!-- ng-hide -->
+      <!-- ng-show -->
       <h2><code>ng-if</code></h2>
       <h2><code>ng-hide</code></h2>
       <h2><code>ng-show</code></h2>
@@ -51,10 +58,14 @@
       <br>
       <button class="btn btn-primary" ng-click="toggle()">Toggle the text above^^^</button>
 
+
+      <!-- ng-mousemove -->
       <h2><code>ng-mousemove</code></h2>
       <p>{{ coords || 'x: 0, y: 0' }}</p>
       <div style="width: 512px; height: 512px; border: 1px solid black;" ng-mousemove="onMouseEvent($event)"></div>
 
+
+      <!-- ng-repeat -->
       <h2><code>ng-repeat</code></h2>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="word in words">
@@ -62,12 +73,16 @@
         </li>
       </ul>
 
-      <h2><code>Built-In Filters</code></h2>
-      <p>{{ 1234.1234 | currency }}</p>
-      <p>{{ time | date: 'MM/dd/yyyy' }}</p>
-      <p>{{ words | json }}</p>
-      <p>{{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum debitis ea quis dolorum libero, minus minima quia ipsam accusamus fuga pariatur saepe soluta velit laboriosam sed nemo, modi eius. Pariatur.' | limitTo: 10 }}</p>
 
+      <!-- Filters -->
+      <h2><code>Built-In Filters</code></h2>
+      <p><code>currency</code>: {{ 1234.1234 | currency }}</p>
+      <p><code>date</code>: {{ time | date: 'MM/dd/yyyy' }}</p>
+      <p><code>json</code>: {{ words | json }}</p>
+      <p><code>limitTo</code>: {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum debitis ea quis dolorum libero, minus minima quia ipsam accusamus fuga pariatur saepe soluta velit laboriosam sed nemo, modi eius. Pariatur.' | limitTo: 10 }}</p>
+
+
+      <!-- ng-repeat with a Filter -->
       <h2><code>ng-repeat</code> with a Filter</h2>
       <div class="form-group">
         <input type="text" ng-model="q" class="form-control">
@@ -78,6 +93,8 @@
         </li>
       </ul>
 
+
+      <!-- Custom unique Filter -->
       <h2>Custom <code>unique</code> Filter</h2>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="value in values | unique">
@@ -86,6 +103,7 @@
       </ul>
 
 
+      <!-- Form Validations -->
       <h2>Built-In Form Validations</h2>
       <form name="myForm">
         <div class="form-group">
@@ -104,6 +122,7 @@
       </form>
 
 
+      <!-- Built-In Services -->
       <h2><code>$timeout</code></h2>
       <button class="btn btn-primary" ng-click="callTimeout()">Call $timeout</button>
 
@@ -124,6 +143,15 @@
 
     <!-- App -->
     <script src="/assets/js/app.js"></script>
+
+    <!-- Services -->
+    <script src="/assets/js/services/lodash_service.js"></script>
+
+    <!-- Filters -->
+    <script src="/assets/js/filters/unique_filter.js"></script>
+
+    <!-- Controllers -->
+    <script src="/assets/js/controllers/examples_ctrl.js"></script>
   </body>
 </html>
 
