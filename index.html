@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="Demo" ng-controller="ExamplesCtrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scrum Demo Core Angular</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Lodash -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.js"></script>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- My Styles -->
+    <link rel="stylesheet" href="/assets/stylesheets/css/styles.css">
+  </head>
+  <body>
+
+    <main class="container">
+      <header class="page-header">
+        <h1>Angular {{ time % 2 === 0 ? 'Demo' : 'Example' }}</h1>
+      </header>
+
+      <h2><code>$scope</code></h2>
+      <p>{{ message }}</p>
+
+
+      <h2><code>ng-click</code></h2>
+      <button class="btn btn-primary" ng-click="onClick()">Click me!</button>
+
+      <h2><code>ng-if</code></h2>
+      <h2><code>ng-hide</code></h2>
+      <h2><code>ng-show</code></h2>
+      <p ng-if="isHidden">I show if "Hide me!" is hidden</p>
+      <br>
+
+      <p ng-hide="isHidden">Hide me!</p>
+      <br>
+
+      <p ng-show="isHidden">Show me!</p>
+      <br>
+      <button class="btn btn-primary" ng-click="toggle()">Toggle the text above^^^</button>
+
+      <h2><code>ng-mousemove</code></h2>
+      <p>{{ coords || 'x: 0, y: 0' }}</p>
+      <div style="width: 512px; height: 512px; border: 1px solid black;" ng-mousemove="onMouseEvent($event)"></div>
+
+      <h2><code>ng-repeat</code></h2>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="word in words">
+          {{ ($index + 1) + '. ' + word }}
+        </li>
+      </ul>
+
+      <h2><code>Built-In Filters</code></h2>
+      <p>{{ 1234.1234 | currency }}</p>
+      <p>{{ time | date: 'MM/dd/yyyy' }}</p>
+      <p>{{ words | json }}</p>
+      <p>{{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum debitis ea quis dolorum libero, minus minima quia ipsam accusamus fuga pariatur saepe soluta velit laboriosam sed nemo, modi eius. Pariatur.' | limitTo: 10 }}</p>
+
+      <h2><code>ng-repeat</code> with a Filter</h2>
+      <div class="form-group">
+        <input type="text" ng-model="q" class="form-control">
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="word in words | filter: q">
+          {{ ($index + 1) + '. ' + word }}
+        </li>
+      </ul>
+
+      <h2>Custom <code>unique</code> Filter</h2>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="value in values | unique">
+          {{ ($index + 1) + '. ' + value }}
+        </li>
+      </ul>
+
+
+      <h2>Built-In Form Validations</h2>
+      <form name="myForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" ng-model="formData.email" required ng-pattern="/@/" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="password" ng-model="formData.password" required ng-minlength="5" ng-maxlength="10" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Submit Now" ng-click="processForm(myForm)" class="btn btn-primary">
+        </div>
+      </form>
+
+
+      <h2><code>$timeout</code></h2>
+      <button class="btn btn-primary" ng-click="callTimeout()">Call $timeout</button>
+
+
+      <h2><code>$http</code></h2>
+      <button class="btn btn-primary" ng-click="createUser()">Create User</button>
+  
+
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </main> 
+
+
+    <!-- App -->
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>
+
+
+

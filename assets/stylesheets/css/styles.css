@@ -1,0 +1,21 @@
+/*
+  
+  Styles
+  
+*/
+
+input.ng-valid{
+  /* green */
+  border: 1px solid #00F;
+}
+
+input.ng-invalid{
+  /* red */
+  border: 1px solid #F00;
+}
+
+input.ng-pristine {
+  border: 1px solid #00F;
+}
+
+
