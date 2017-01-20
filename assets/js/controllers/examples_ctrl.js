@@ -74,7 +74,7 @@ Demo.controller('ExamplesCtrl',
 
     $scope.createUser = function() {
       $http({
-        url: 'http://reqres.in/api/users',
+        url: 'http://jsonplaceholder.typicode.com/users',
         method: 'POST',
         data: 'name=Fred+Beans',
         headers: {
